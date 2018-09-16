@@ -1,4 +1,4 @@
-OUTPUT=colle-2
+OUTPUT=bsq
 DIR_SOURCES=sources
 DIR_OBJECTS=objects
 DIR_INCLUDES=includes
