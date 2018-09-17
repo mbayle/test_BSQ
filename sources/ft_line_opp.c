@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:12:21 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 22:01:46 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 22:21:47 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_bigdata	*ft_line_info(int fb)
 	if ((result = malloc(sizeof(t_bigdata))) == 0)
 		return (0);
 	buffer = 0;
-	result->x = 0;
+	result->x = 1;
 	result->y = 0;
 	while (read(fb, &buffer, 1) == 1 && (buffer >= '0' && buffer <= '9'))
 		result->y = (result->y * 10) + (buffer - '0');
@@ -75,12 +75,13 @@ char		*ft_know_line(int fb, t_bigdata *data)
 	char	*result;
 	int		to_read;
 	int		readed;
+	char	buffer;
 
 	to_read = 0;
 	readed = 0;
 	if ((result = malloc(sizeof(char) * data->x)) == 0)
 		return (0);
-	while ((readed = read(fb, result + to_read, data->x - readed)) != 0 &&
+	while ((readed = read(fb, result + to_read, data->x - to_read)) != 0 &&
 			to_read + readed == data->x)
 		to_read += readed;
 	if (to_read != data->x)
@@ -92,5 +93,7 @@ char		*ft_know_line(int fb, t_bigdata *data)
 			return (ft_free_simple(result));
 		i++;
 	}
+	if (read(fb, &buffer, 1) != 1 || buffer != '\n')
+		return (ft_free_simple(result));
 	return (result);
 }
