@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_display.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/16 02:15:12 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 23:41:00 by gabettin         ###   ########.fr       */
+/*   Created: 2018/09/17 22:54:09 by gabettin          #+#    #+#             */
+/*   Updated: 2018/09/17 22:58:17 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_line_opp.h"
-#include "ft_memory_opp.h"
 #include "ft_display.h"
 
-int	main(int argc, char **argv)
+void	ft_display_matris(char **matris, int x, int y)
 {
-	t_bigdata	*data;
-	char		**matrix;
+	int i;
 
-	(void)argc;
-	(void)argv;
-	data = 0;
-	if ((matrix = ft_matrix(0, &data)) == 0)
+	i = 0;
+	while (i < y)
 	{
-		free(data);
-		write(2, "map error\n", 1);
+		write(1, matris[i++], x);
+		write(1, "\n", 1);
 	}
-	ft_display_matris(matrix, data->x, data->y);
-	return (0);
 }

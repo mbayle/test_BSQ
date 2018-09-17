@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:12:21 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 22:21:47 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 23:45:15 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,32 @@ char		*ft_know_line(int fb, t_bigdata *data)
 	}
 	if (read(fb, &buffer, 1) != 1 || buffer != '\n')
 		return (ft_free_simple(result));
+	return (result);
+}
+
+char		**ft_matrix(int fb, t_bigdata **data)
+{
+	t_dnode	*first;
+	t_dnode	*actual;
+	char	**result;
+	int		i;
+
+	if ((*data = ft_line_info(fb)) == 0)
+		return (0);
+	if ((first = ft_new_dnode(ft_unknow_line(fb, *data))) == 0 ||
+			first->data == 0)
+		return (ft_free_node_and_dnode((void*)0, first));
+	i = 0;
+	actual = first;
+	while (i < (*data)->x)
+	{
+		if ((actual->next = ft_new_dnode(ft_know_line(fb, *data))) == 0 ||
+				actual->data == 0)
+			return (ft_free_dnode_chain(first, 1));
+		actual = actual->next;
+		i++;
+	}
+	result = ft_dnode_to_array(first);
+	ft_free_dnode_chain(first, 0);
 	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:16:05 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 18:40:00 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 23:38:56 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,5 @@ typedef struct	s_bigdata
 t_bigdata		*ft_line_info(int fb);
 char			*ft_unknow_line(int fb, t_bigdata *data);
 char			*ft_know_line(int fb, t_bigdata *data);
+char			**ft_matrix(int fb, t_bigdata **data);
 #endif
