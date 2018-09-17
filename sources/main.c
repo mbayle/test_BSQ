@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 02:15:12 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 23:41:00 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 23:54:04 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ int	main(int argc, char **argv)
 		write(2, "map error\n", 1);
 	}
 	ft_display_matris(matrix, data->x, data->y);
+	for (int i = 0; i < data->y; i++)
+		free(matrix[i]);
+	free(matrix);
+	while(1);
 	return (0);
 }
