@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 04:26:07 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 16:18:51 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:14:57 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,5 @@
 void	*ft_free_node_chain(t_node *first);
 void	*ft_free_dnode_chain(t_dnode *first);
 void	*ft_free_matris(char **array);
-void	*ft_free_simple(void* object);
+void	*ft_free_simple(void *object);
 #endif

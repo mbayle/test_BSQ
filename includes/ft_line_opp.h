@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:16:05 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 16:31:31 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:14:46 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@
 
 typedef struct	s_bigdata
 {
-	char	E;
-	char	W;
-	char	S;
-	int		Y;
-	int		X;
+	char	e;
+	char	w;
+	char	s;
+	int		y;
+	int		x;
 }				t_bigdata;
-t_bigdata	*ft_line_info(int fb);
+t_bigdata		*ft_line_info(int fb);
 #endif
