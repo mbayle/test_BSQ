@@ -6,11 +6,12 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 02:56:34 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/16 04:12:15 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 17:55:32 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_node_opp.h"
+#include "libft.h"
 
 t_node	*ft_new_node(char data)
 {
@@ -52,7 +53,7 @@ char	*ft_node_to_array(t_node *first)
 		return (0);
 	i = 0;
 	actual = first;
-	while (i < counter)
+	while (i <= counter)
 	{
 		result[i++] = actual->data;
 		actual = actual->next;
