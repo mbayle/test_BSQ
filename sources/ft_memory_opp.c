@@ -6,13 +6,13 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 04:13:48 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/16 04:28:04 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 16:23:46 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory_opp.h"
 
-void	ft_free_node_chain(t_node *first)
+void	*ft_free_node_chain(t_node *first)
 {
 	t_node	*actual;
 	t_node	*buffer;
@@ -24,9 +24,10 @@ void	ft_free_node_chain(t_node *first)
 		actual = actual->next;
 		free(buffer);
 	}
+	return (0);
 }
 
-void	ft_free_dnode_chain(t_dnode *first)
+void	*ft_free_dnode_chain(t_dnode *first)
 {
 	t_dnode	*actual;
 	t_dnode	*buffer;
@@ -38,9 +39,10 @@ void	ft_free_dnode_chain(t_dnode *first)
 		actual = actual->next;
 		free(buffer);
 	}
+	return (0);
 }
 
-void	ft_free_martis(char **array)
+void	*ft_free_martis(char **array)
 {
 	int i;
 
@@ -50,4 +52,11 @@ void	ft_free_martis(char **array)
 		free(array[i++]);
 	}
 	free(array);
+	return (0);
+}
+
+void	*ft_free_simple(void *object)
+{
+	free(object);
+	return (0);
 }

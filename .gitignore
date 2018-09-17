@@ -6,3 +6,5 @@
 *.perl
 *.out
 bsq
+*/*.swp
+*.swp

@@ -9,7 +9,9 @@ FILES_OBJECTS=$(addprefix $(DIR_OBJECTS)/,$(addsuffix .o,$(FILES_NEUTRAL)))
 FILES_INCLUDES=$(wildcard $(DIR_INCLUDES)/*);
 FLAGS=-Wall -Wextra -Werror -g -O0
 
-all: $(FILES_OBJECTS)
+.PHONY: directories
+
+all: directories $(FILES_OBJECTS)
 	gcc $(FILES_OBJECTS) *.a -o $(OUTPUT)
 re: fclean all
 clean:
@@ -17,6 +19,16 @@ clean:
 	rm $(DIR_OBJECTS)/*.o
 fclean: clean
 	@touch $(OUTPUT)
-	@rm $(OUTPUT)
+	rm $(OUTPUT)
+
+directories: $(DIR_SOURCES) $(DIR_OBJECTS) $(DIR_INCLUDES)
+
+$(DIR_SOURCES):
+	mkdir $(DIR_SOURCES)
+$(DIR_OBJECTS):
+	mkdir $(DIR_OBJECTS)
+$(DIR_INCLUDES):
+	mkdir $(DIR_INCLUDES)
+
 $(DIR_OBJECTS)/%.o:$(DIR_SOURCES)/%.c $(FILES_INCLUDES)
 	gcc $(FLAGS) -I$(DIR_INCLUDES) -c $< -o $@
