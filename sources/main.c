@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 02:15:12 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 17:57:10 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 18:39:41 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,14 @@ int	main(int argc, char **argv)
 	ft_putchar(data->s);
 	ft_putchar('\n');
 	if ((lineone = ft_unknow_line(0, data)) == 0)
+	{
+		free(data);
+		return (1);
+	}
+	ft_putstr(lineone);
+	ft_putchar('\n');
+	free(lineone);
+	if ((lineone = ft_know_line(0, data)) == 0)
 	{
 		free(data);
 		return (1);

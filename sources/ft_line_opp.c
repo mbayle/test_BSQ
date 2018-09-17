@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:12:21 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 17:56:18 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/17 18:40:42 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,38 @@ char		*ft_unknow_line(int fb, t_bigdata *data)
 		actual->next = ft_new_node(buffer);
 		actual = actual->next;
 	}
-	if (buffer == '\0' && data->x != 1)
+	if (buffer == '\0' && data->y != 1)
 		return (ft_free_node_chain(first));
-	else if (buffer == '\n' && (data->x == 1 ||
+	else if (buffer == '\n' && (data->y == 1 ||
 				(result = ft_node_to_array(first))) == 0)
 		return (ft_free_node_chain(first));
 	else if (buffer != '\n' && buffer != '\0')
 		return (ft_free_node_chain(first));
+	return (result);
+}
+
+char		*ft_know_line(int fb, t_bigdata *data)
+{
+	int		i;
+	char	*result;
+	int		to_read;
+	int		readed;
+
+	to_read = 0;
+	readed = 0;
+	if ((result = malloc(sizeof(char) * data->x)) == 0)
+		return (0);
+	while ((readed = read(fb, result + to_read, data->x - readed)) != 0 &&
+			to_read + readed == data->x)
+		to_read += readed;
+	if (to_read != data->x)
+		return (ft_free_simple(result));
+	i = 0;
+	while (i < data->x)
+	{
+		if (result[i] != data->e && result[i] != data->w)
+			return (ft_free_simple(result));
+		i++;
+	}
 	return (result);
 }
