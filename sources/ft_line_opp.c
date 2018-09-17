@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:12:21 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 23:58:30 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 00:13:32 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,9 @@ char		*ft_know_line(int fb, t_bigdata *data)
 	if ((result = malloc(sizeof(char) * data->x)) == 0)
 		return (0);
 	while ((readed = read(fb, result + to_read, data->x - to_read)) != 0 &&
-			to_read + readed == data->x)
+			to_read + readed != data->x)
 		to_read += readed;
+	to_read += readed;
 	if (to_read != data->x)
 		return (ft_free_simple(result));
 	i = 0;
