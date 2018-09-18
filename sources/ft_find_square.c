@@ -6,7 +6,7 @@
 /*   By: clboutry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 02:51:29 by clboutry          #+#    #+#             */
-/*   Updated: 2018/09/18 04:29:20 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 05:20:13 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,27 @@ void		ft_find_ext(char **tab, t_bigdata *data, t_fulldata *r)
 		r->x_actu = r->x_depart;
 		r->y_actu = r->y_depart;
 		r->size = 0;
+	}
+}
+
+void		ft_fill_square(char **tab, t_bigdata *data, t_fulldata *r)
+{
+	int i;
+	int j;
+
+	j = 0;
+	while (j < r->sizemax)
+	{
+		i = 0;
+		while (i < r->sizemax)
+		{
+			tab[r->y_max_pos][r->x_max_pos] = data->s;
+			r->x_max_pos++;
+			i++;
+		}
+		r->x_max_pos -= i;
+		r->y_max_pos++;
+		j++;
 	}
 }
 
