@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 04:00:42 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/18 05:18:09 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 09:04:35 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct	s_fulldata
 	int size;
 }				t_fulldata;
 t_fulldata		*ft_find(char **tab, t_bigdata *data);
+t_fulldata		*ft_prevent_one_line(char **tab, t_bigdata *d, t_fulldata *r);
 void			ft_find_ext(char **tab, t_bigdata *data, t_fulldata *r);
 void			ft_fill_square(char **tab, t_bigdata *data, t_fulldata *r);
 t_fulldata		*ft_fulldata_init(void);

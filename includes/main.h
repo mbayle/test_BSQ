@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_line_opp.h                                      :+:      :+:    :+:   */
+/*   main.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/16 05:16:05 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/18 09:41:23 by gabettin         ###   ########.fr       */
+/*   Created: 2018/09/18 09:30:26 by gabettin          #+#    #+#             */
+/*   Updated: 2018/09/18 09:40:51 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LINE_OPP_H
-# define FT_LINE_OPP_H
-# include <stdlib.h>
+#ifndef MAIN_H
+# define MAIN_H
+# include <fcntl.h>
+# include "libft.h"
+# include "ft_line_opp.h"
+# include "ft_find_square.h"
+# include "ft_memory_opp.h"
+# include "ft_display.h"
 
-typedef struct	s_bigdata
-{
-	char	e;
-	char	w;
-	char	s;
-	int		y;
-	int		x;
-}				t_bigdata;
-t_bigdata		*ft_line_info(int fb);
-char			*ft_unknow_line(int fb, t_bigdata *data);
-char			*ft_know_line(int fb, t_bigdata *data);
-char			**ft_matrix(int fb, t_bigdata **data);
+void	ft_do_this_fb(int fb);
 #endif
