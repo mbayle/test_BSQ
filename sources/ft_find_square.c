@@ -6,11 +6,12 @@
 /*   By: clboutry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 02:51:29 by clboutry          #+#    #+#             */
-/*   Updated: 2018/09/18 06:28:30 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 08:28:20 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_find_square.h"
+#include <stdio.h>
 
 t_fulldata	*ft_find(char **tab, t_bigdata *data)
 {
@@ -22,11 +23,11 @@ t_fulldata	*ft_find(char **tab, t_bigdata *data)
 	{
 		while (r->x_depart < (data->x - r->sizemax))
 		{
-			while (r->x_actu < (r->x_depart + r->size) &&
-			tab[r->y_actu][r->x_actu] != data->w && r->x_actu < data->x)
+			while (r->x_actu + 1 < (r->x_depart + r->size) &&
+			tab[r->y_actu][r->x_actu] != data->w && r->x_actu + 1 < data->x)
 				r->x_actu++;
-			while (r->y_actu < (r->y_depart + r->size) &&
-			tab[r->y_actu][r->x_actu] != data->w && r->y_actu < data->y)
+			while (r->y_actu + 1 < (r->y_depart + r->size) &&
+			tab[r->y_actu][r->x_actu] != data->w && r->y_actu + 1 < data->y)
 				r->y_actu++;
 			while (r->x_actu > r->x_depart &&
 				tab[r->y_actu][r->x_actu] != data->w && r->x_actu < data->x)
@@ -48,12 +49,12 @@ void		ft_find_ext(char **tab, t_bigdata *data, t_fulldata *r)
 		r->y_max_pos = r->y_depart;
 		r->sizemax = r->size;
 	}
-	if (tab[r->y_actu][r->x_actu] != data->w && r->y_actu < data->y &&
-			r->x_actu < data->x)
+	if (tab[r->y_actu][r->x_actu] != data->w && r->y_actu + 1 < data->y &&
+			r->x_actu + 1 < data->x)
 	{
+		r->size++;
 		r->x_actu = r->x_depart + r->size;
 		r->y_actu = r->y_depart;
-		r->size++;
 	}
 	else
 	{
