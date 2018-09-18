@@ -6,14 +6,11 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 05:12:21 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/18 08:21:16 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 10:26:26 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_line_opp.h"
-#include "ft_node_opp.h"
-#include "ft_memory_opp.h"
-#include "libft.h"
 
 t_bigdata	*ft_line_info(int fb)
 {

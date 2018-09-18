@@ -6,12 +6,11 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 02:56:34 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 23:39:58 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 10:24:58 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_node_opp.h"
-#include "libft.h"
 
 t_node	*ft_new_node(char data)
 {

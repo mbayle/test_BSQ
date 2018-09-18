@@ -6,12 +6,11 @@
 /*   By: clboutry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 02:51:29 by clboutry          #+#    #+#             */
-/*   Updated: 2018/09/18 09:19:39 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 10:23:43 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_find_square.h"
-#include <stdio.h>
 
 t_fulldata	*ft_find(char **tab, t_bigdata *data)
 {
