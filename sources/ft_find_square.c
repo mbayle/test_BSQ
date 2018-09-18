@@ -6,7 +6,7 @@
 /*   By: clboutry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 02:51:29 by clboutry          #+#    #+#             */
-/*   Updated: 2018/09/18 04:17:35 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 04:29:20 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,37 @@ t_fulldata	*ft_find(char **tab, t_bigdata *data)
 			while (r->x_actu > r->x_depart &&
 				tab[r->y_actu][r->x_actu] != data->w && r->x_actu < data->x)
 				r->x_actu--;
-			if (r->size > r->sizemax)
-			{
-				r->x_max_pos = r->x_depart;
-				r->y_max_pos = r->y_depart;
-				r->sizemax = r->size;
-			}
-			if (tab[r->y_actu][r->x_actu] != 1 && r->y_actu < data->y &&
-					r->x_actu < data->x)
-			{
-				r->x_actu = r->x_depart + r->size;
-				r->y_actu = r->y_depart;
-				r->size++;
-			}
-			else
-			{
-				r->x_depart++;
-				r->x_actu = r->x_depart;
-				r->y_actu = r->y_depart;
-				r->size = 0;
-			}
+			ft_find_ext(tab, data, r);
 		}
 		r->x_depart = 0;
 		r->y_depart++;
 		r->size = 0;
 	}
 	return (r);
+}
+
+void		ft_find_ext(char **tab, t_bigdata *data, t_fulldata *r)
+{
+	if (r->size > r->sizemax)
+	{
+		r->x_max_pos = r->x_depart;
+		r->y_max_pos = r->y_depart;
+		r->sizemax = r->size;
+	}
+	if (tab[r->y_actu][r->x_actu] != data->w && r->y_actu < data->y &&
+			r->x_actu < data->x)
+	{
+		r->x_actu = r->x_depart + r->size;
+		r->y_actu = r->y_depart;
+		r->size++;
+	}
+	else
+	{
+		r->x_depart++;
+		r->x_actu = r->x_depart;
+		r->y_actu = r->y_depart;
+		r->size = 0;
+	}
 }
 
 t_fulldata	*ft_fulldata_init(void)
