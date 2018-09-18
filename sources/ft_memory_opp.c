@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 04:13:48 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/17 22:50:29 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 03:41:01 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,15 +44,13 @@ void	*ft_free_dnode_chain(t_dnode *first, int and_data)
 	return (0);
 }
 
-void	*ft_free_martis(char **array)
+void	*ft_free_matris(char **array, int y)
 {
 	int i;
 
 	i = 0;
-	while (array[i] != 0)
-	{
+	while (i < y)
 		free(array[i++]);
-	}
 	free(array);
 	return (0);
 }
