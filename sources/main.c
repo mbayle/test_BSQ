@@ -6,7 +6,7 @@
 /*   By: gabettin <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/16 02:15:12 by gabettin          #+#    #+#             */
-/*   Updated: 2018/09/18 03:38:30 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 05:26:33 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 #include "ft_line_opp.h"
 #include "ft_memory_opp.h"
 #include "ft_display.h"
+#include "ft_find_square.h"
 
 int	main(int argc, char **argv)
 {
 	t_bigdata	*data;
 	char		**matrix;
+	t_fulldata	*r;
 
 	(void)argc;
 	(void)argv;
@@ -28,7 +30,10 @@ int	main(int argc, char **argv)
 		free(data);
 		write(2, "map error\n", 1);
 	}
-	ft_display_matris(matrix, data->x, data->y);
+	//ft_display_matris(matrix, data->x, data->y);
+	r = ft_find(matrix, data);
+	ft_fill_square(matrix, data, r);
+	ft_display_matris(matrix, data->x ,data->y);
 	ft_free_matris(matrix, data->y);
 	while (1)
 		;
