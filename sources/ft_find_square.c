@@ -6,7 +6,7 @@
 /*   By: clboutry <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/18 02:51:29 by clboutry          #+#    #+#             */
-/*   Updated: 2018/09/18 05:20:13 by gabettin         ###   ########.fr       */
+/*   Updated: 2018/09/18 06:27:35 by gabettin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,7 @@ t_fulldata	*ft_find(char **tab, t_bigdata *data)
 		while (r->x_depart < (data->x - r->sizemax))
 		{
 			while (r->x_actu < (r->x_depart + r->size) &&
-					tab[r->y_actu][r->x_actu] != data->w
-					&& r->x_actu < data->x)
+		tab[r->y_actu][r->x_actu] != data->w && r->x_actu < data->x)
 				r->x_actu++;
 			while (r->y_actu < (r->y_depart + r->size)
 			&& tab[r->y_actu][r->x_actu] != data->w && r->y_actu < data->y)
